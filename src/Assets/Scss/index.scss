@@ -1,0 +1,45 @@
+@use 'Navbar';
+@use 'Home';
+@use 'Footer';
+@use 'Login';   
+@use 'Register';
+@use 'Changes';
+@use 'RecoverPassword';
+@use 'RecoverUpdate';
+@use 'Directory'; 
+@use 'NavBarUser'; 
+@use 'SendMoney';   
+@use 'StepTracker';
+@use 'Recharge' ;
+@use 'Profile';
+@use 'Movements';
+@use 'AccAdm';
+@use 'AdminDashboard';
+@use 'NavBarAdmin';
+@use 'Users';
+@use 'UsersE';
+@use 'UsersR';
+@use 'UsersV';
+@use 'CurrencyPrice';
+@use 'Banks';
+@use 'Relation';
+@use 'notfound';
+@use 'TermsandConditions';
+@use 'Loading';
+@use 'Verify';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    font-family: Roboto,'Noto Sans','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFF;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}

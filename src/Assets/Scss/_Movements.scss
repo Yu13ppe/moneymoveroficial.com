@@ -1,0 +1,258 @@
+.movements {
+  background-color: #f4f6f9;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.amount-flag-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movements__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .tab {
+    flex: 1 1 auto;
+    padding: 12px 30px;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: #003366;
+      color: white;
+    }
+
+    &:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tab {
+      flex: 1 1 100%;
+      margin: 5px 0;
+    }
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+
+  .movements__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    th,
+    td {
+      text-align: left;
+      padding: 12px 15px;
+    }
+
+    th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+      font-size: 14px;
+      color: #555;
+    }
+
+    td {
+      background-color: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 14px;
+      color: #333;
+
+      img {
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+      }
+
+      &.v {
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      &.r {
+        color: #f44336;
+        font-weight: bold;
+      }
+
+      &.e {
+        color: #ff9800;
+        font-weight: bold;
+      }
+
+      .view-details-icon {
+        cursor: pointer;
+        color: #007bff;
+        font-size: 20px;
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+  }
+
+  .tooltip {
+    color: #ff9800;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #232323;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 0;
+    width: 150px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -80px;
+    margin-bottom: 10px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; // Asegúrate de que esté por encima de otros elementos
+}
+
+.modal-content {
+  position: relative;  // Esto es importante para que el botón de cerrar se posicione respecto al modal
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  width: 600px;
+  max-height: 90%;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out, scaleUp 0.3s ease-in-out;
+}
+
+/* Títulos dentro del modal */
+.modal-content h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Detalles dentro del modal */
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.modal-details strong {
+  color: #007bff;
+}
+
+/* Estilo para el botón de cerrar */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #dc3545;
+  cursor: pointer;
+  width: 30px;
+  z-index: 3000; // Asegura que esté por encima del contenido del modal
+}
+
+.modal-close:hover {
+  color: #c82333;
+}
+/* Estilo para imágenes dentro del modal */
+.modal-image {
+  max-width: 50%;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+  }
+
+  .movements {
+    padding: 15px;
+  }
+  
+  .movements__tabs {
+    flex-direction: column;
+
+    .tab {
+      margin: 5px 0;
+    }
+  }
+
+  .movements__table {
+    th, td {
+      font-size: 12px;
+      padding: 8px;
+    }
+
+    td img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}

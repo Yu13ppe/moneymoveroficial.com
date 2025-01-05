@@ -1,0 +1,501 @@
+.cedula-input, .telefono-input {
+
+  display: flex;
+  gap: 10px;
+}
+
+.cedula-prefix, .telefono-prefix {
+  width: 80px !important;
+  text-align: center !important;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+}
+
+
+
+
+
+.directorio {
+  background-color: #f4f6f9;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  /* Estilos generales para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Asegura que esté por encima de otros elementos */
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  width: 600px;
+  max-height: 90%;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out, scaleUp 0.3s ease-in-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #c82333;
+}
+
+/* Formulario del modal */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para el campo de prefijo y número de teléfono */
+.telefono-input {
+  display: flex;
+}
+
+.telefono-prefix {
+  width: 25%;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .telefono-input {
+    flex-direction: column;
+  }
+
+  .telefono-prefix {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Estilos para los errores */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+  .directorio__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      position: relative;
+      display: inline-block;
+
+      // Subrayado moderno
+      &::after {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 4px;
+        background-color: #003366;
+        left: 10%;
+        bottom: -10px;
+        border-radius: 10px;
+      }
+    }
+
+    .directorio__actions {
+      display: flex;
+      gap: 15px;
+
+      .action-button {
+        padding: 10px 20px;
+        border: 2px solid #003366;
+        border-radius: 25px;
+        background-color: #fff;
+        color: #003366;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: #003366;
+          color: white;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+
+      .directorio__actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        .action-button {
+          flex-grow: 1;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .directorio__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .beneficiario-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .flag-icon {
+        width: 50px;
+        height: 35px;
+        margin-right: 20px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1); // Animación suave en la bandera
+        }
+      }
+
+      .beneficiario-info {
+        flex-grow: 1;
+
+        h3 {
+          font-size: 20px;
+          color: #003366;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 14px;
+          color: #555;
+          margin-bottom: 4px;
+        }
+      }
+
+      .remesa-button {
+        padding: 12px 25px;
+        border: 2px solid #003366;
+        border-radius: 25px;
+        background-color: #fff;
+        color: #003366;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: #003366;
+          color: white;
+        }
+      }
+
+      .estado {
+          font-size: 14px;
+          font-weight: bold;
+          margin-left: 10px;
+          cursor: pointer; // Hace que el estado parezca clicable
+          
+          &.activo {
+            color: #28a745; // Verde para Activo
+          }
+          
+          &.inactivo {
+            color: #dc3545; // Rojo para Inactivo
+          }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        text-align: left;
+
+        .flag-icon {
+          width: 40px;
+          height: 25px;
+          margin-right: 0;
+        }
+
+        .beneficiario-info h3 {
+          font-size: 18px;
+        }
+
+        .remesa-button {
+          align-self: stretch;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.05);
+      transition: all 0.4s ease-in-out;
+    
+      // Cuando el modal está activo
+      &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+      }
+    
+      .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        position: relative;
+        animation: fadeIn 0.5s ease;
+    
+        h2 {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+    
+        label {
+          font-size: 16px;
+          margin-bottom: 8px;
+          display: block;
+        }
+    
+        input, select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }
+    
+        .submit-button {
+          padding: 10px 20px;
+          background-color: #003366;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+    
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+    
+        .error {
+          color: #e74c3c; 
+          font-size: 0.875rem; 
+          margin-top: -10px; 
+          margin-bottom: 10px; 
+          padding-left: 5px;
+          display: block;
+      
+          &::before {
+            content: '⚠'; 
+            margin-right: 5px;
+          }
+        }
+
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: transparent;
+          border: none;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    
+        @media (max-width: 768px) {
+          padding: 15px;
+          max-width: 95%; // Aumentar el ancho en pantallas móviles
+    
+          h2 {
+            font-size: 20px;
+          }
+    
+          input, select {
+            padding: 8px;
+          }
+    
+          .submit-button {
+            padding: 10px;
+          }
+        }
+      }
+    
+      // Animación de entrada
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      // Animación de salida
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+      }
+    }
+    
+    // Añadir el estado de cerrar con animación
+    &.close {
+      animation: fadeOut 0.5s ease;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.95);
+    }
+    
+    
+    .tooltip {
+      color: #ff9800;
+      position: relative;
+      display: inline-block;
+    }
+  
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      background-color: #232323;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px 0;
+  
+      width: 150px;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -80px;
+      margin-bottom: 10px;
+      /* Use half of the width (120/2 = 60), to center the tooltip */
+  
+  
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+    }
+  
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+}

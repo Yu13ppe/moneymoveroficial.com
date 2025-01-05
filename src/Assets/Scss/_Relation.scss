@@ -1,0 +1,371 @@
+.relation-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #f4f7fa;
+
+    .deposits-withdrawals-modal {
+      .modal-content {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+        position: relative;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
+        h3, h4 {
+          text-align: center;
+          margin-bottom: 20px;
+          font-weight: bold;
+        }
+    
+        // Filtro de fecha
+        .date-filter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+    
+          label {
+            margin-right: 10px;
+            font-weight: bold;
+          }
+        }
+    
+        // Totales generales por moneda, con colores diferenciados
+        .totals-section {
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 20px;
+    
+          .total-box {
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #edf2f7;
+            width: 30%;
+            
+            h5 {
+              margin-bottom: 10px;
+              font-weight: bold;
+              font-size: 1.1em;
+            }
+    
+            .amount {
+              font-size: 1.2em;
+              font-weight: bold;
+            }
+    
+            .deposits {
+              color: #38a169; // Verde para depósitos
+            }
+    
+            .withdrawals {
+              color: #e53e3e; // Rojo para retiros
+            }
+          }
+        }
+    
+        // Tabla de usuario y moneda
+        .user-totals-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+          text-align: center;
+    
+          th, td {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.95em;
+          }
+    
+          th {
+            background-color: #4a5568;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+    
+          td {
+            background-color: #fff;
+          }
+    
+          tr:nth-child(even) td {
+            background-color: #f4f4f4;
+          }
+    
+          tr:nth-child(odd) td {
+            background-color: #e2e8f0;
+          }
+    
+          .deposits {
+            color: #38a169; // Verde para depósitos
+          }
+    
+          .withdrawals {
+            color: #e53e3e; // Rojo para retiros
+          }
+        }
+      }
+    }
+
+  
+    .dashboard-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+      .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .totals-section {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+          color: #333;
+        }
+      
+        p {
+          font-size: 1.2rem;
+          margin: 5px 0;
+          color: #555;
+          &:nth-child(odd) {
+            color: #007bff;
+          }
+        }
+      
+        // Para resaltar los totales importantes
+        p:last-child {
+          font-weight: bold;
+          font-size: 1.3rem;
+          color: #d9534f; // Color más llamativo para los retiros en bolívares
+        }
+      }
+      
+  
+      .date-filter {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        label {
+          margin-right: 10px;
+          font-weight: bold;
+        }
+  
+        input[type="date"] {
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+        }
+      }
+  
+      .filter-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+  
+        button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+  
+          &:hover {
+            transform: scale(1.05);
+          }
+  
+          &.active {
+            background-color: #003366;
+            color: white;
+          }
+  
+          &.inactive {
+            background-color: #f1f1f1;
+            color: #333;
+          }
+        }
+      }
+  
+      .transactions-section {
+        width: 100%;
+  
+        .transactions-table {
+          width: 100%;
+          border-collapse: collapse;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+          th, td {
+            padding: 12px;
+            text-align: left;
+          }
+  
+          th {
+            background-color: #f7f7f7;
+            font-weight: 600;
+          }
+  
+          td {
+            border-bottom: 1px solid #f1f1f1;
+          }
+  
+          .totales-row {
+            background-color: #f7f7f7;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      .positive-balance-button {
+        margin-top: 20px;
+  
+        .btn {
+          padding: 10px 20px;
+          background-color: #003366;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+          border: none;
+  
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  
+   // Estilo para el overlay que oscurece el fondo
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); // Fondo semitransparente
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+// Estilo para el contenido del modal
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+}
+
+// Estilo de la tabla
+.positive-balance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+  }
+
+  td {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  // Resalta las filas pares
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+}
+
+// Estilo del botón de cierre (X)
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+// Botón de abrir el modal
+
+
+    
+    // Botón de abrir el modal
+    .buttonmodal {
+      padding: 10px 20px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    
+      &:hover {
+        background-color: #003366;
+      }
+    }
+    .date-filter {
+      margin: 10px 0;
+    }
+    
+    .deposit-ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+    
+      th {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+  
