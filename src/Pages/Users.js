@@ -485,7 +485,6 @@ function Users() {
                     <th>Fecha</th>
                     <th>Comentario</th>
                     <th>Imagen</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -509,52 +508,62 @@ function Users() {
                         <td>{move.mov_ref}</td>
                         <td>
                           {move.mov_status === "R" ? (
-                            <AiOutlineCloseCircle style={{ color: "red", fontSize: "2em" }} />
+                            <AiOutlineCloseCircle
+                              style={{ color: "red", fontSize: "2em" }}
+                            />
                           ) : move.mov_status === "V" ? (
                             <AiOutlineCheckCircle
                               style={{ color: "green", fontSize: "2em" }}
                             />
                           ) : (
-                            <AiOutlineClockCircle style={{ color: "blue", fontSize: "2em" }} />
+                            <AiOutlineClockCircle
+                              style={{ color: "blue", fontSize: "2em" }}
+                            />
                           )}
                         </td>
                         <td>{move.mov_date}</td>
 
                         {/* Mostrar la información basada en el tipo de movimiento */}
                         <td>
-  {move.mov_type === "transferencia" ? (
-    <div>
-      <strong>Banco:</strong> {move.AccountsBsUser.accbsUser_bank}
-      <br />
-      <strong>Propietario:</strong> {move.AccountsBsUser.accbsUser_owner}
-      <br />
-      <strong>Número de cuenta:</strong>{" "}
-      {move.AccountsBsUser.accbsUser_number
-        ? move.AccountsBsUser.accbsUser_number
-        : move.AccountsBsUser.accbsUser_phone}
-      <br />
-      <strong>DNI:</strong> {move.AccountsBsUser.accbsUser_dni}
-    </div>
-  ) : move.mov_type === "Deposito" ? (
-    <div>
-      <strong>Código:</strong> {move.mov_code}
-      <br />
-      {move.mov_phone && (
-        <>
-          <strong>Teléfono:</strong> {move.mov_phone}
-          <br />
-        </>
-      )}
-    </div>
-  ) : (
-    // Si no es transferencia ni ingreso, mostrar el comentario
-    <div
-      dangerouslySetInnerHTML={{
-        __html: move.mov_comment.replace(/\n/g, "<br/>"),
-      }}
-    />
-  )}
-</td>
+                          {move.mov_type === "Retiro" && move.AccountsBsUser ? (
+                            <div>
+                              <strong>Banco:</strong>{" "}
+                              {move.AccountsBsUser.accbsUser_bank}
+                              <br />
+                              <strong>Propietario:</strong>{" "}
+                              {move.AccountsBsUser.accbsUser_owner}
+                              <br />
+                              <strong>Número de cuenta:</strong>{" "}
+                              {move.AccountsBsUser.accbsUser_number
+                                ? move.AccountsBsUser.accbsUser_number
+                                : move.AccountsBsUser.accbsUser_phone}
+                              <br />
+                              <strong>DNI:</strong>{" "}
+                              {move.AccountsBsUser.accbsUser_dni}
+                            </div>
+                          ) : move.mov_type === "Deposito" ? (
+                            <div>
+                              <strong>Código:</strong> {move.mov_code}
+                              <br />
+                              {move.mov_phone && (
+                                <>
+                                  <strong>Teléfono:</strong> {move.mov_phone}
+                                  <br />
+                                </>
+                              )}
+                            </div>
+                          ) : (
+                            // Si no es transferencia ni ingreso, mostrar el comentario
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: move.mov_comment.replace(
+                                  /\n/g,
+                                  "<br/>"
+                                ),
+                              }}
+                            />
+                          )}
+                        </td>
 
                         <td>
                           {move.mov_img ? (
@@ -576,7 +585,6 @@ function Users() {
                     ) : null
                   )}
                 </tbody>
-
               </table>
               <button onClick={closeModal} className="close-button">
                 Cerrar
@@ -611,8 +619,8 @@ function Users() {
             <div className="modal-content">
               <h3>Imagen del Movimiento</h3>
               <div className="user-image-placeholder">
-               {/* Muestra una imagen o un enlace de descarga si es PDF */}
-               {selectedMovement.mov_img ? (
+                {/* Muestra una imagen o un enlace de descarga si es PDF */}
+                {selectedMovement.mov_img ? (
                   selectedMovement.mov_img.endsWith(".pdf") ? (
                     <a
                       href={`${url}/Movements/image/${selectedMovement.mov_img}`}
